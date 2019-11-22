@@ -100,15 +100,15 @@ dism /mount-wim /wimfile:"%DEST%\sources\boot.wim" /mountdir:"%MOUNT_DIR%" /inde
 set STARTNET_CMD=%MOUNT_DIR%\Windows\System32\startnet.cmd
 if NOT "%FFU_PATH%" == "" (
     echo Setting up FFU deployment to MMC
-    copy "%FFU_PATH%" "%DEST%\Flash.ffu"
+    echo copy "%FFU_PATH%" "%DEST%\Flash.ffu"
 
     echo Appending FFU flashing commands to %STARTNET_CMD%
-    echo echo Deploying Flash.ffu to eMMC >> "%STARTNET_CMD%"
-    echo dism /Apply-Image /ImageFile:c:\Flash.ffu /ApplyDrive:\\.\PhysicalDrive%FFU_DISK_NUM% /skipplatformcheck >> "%STARTNET_CMD%"
-    echo rmdir /s /q c:\_efi >> "%STARTNET_CMD%"
-    echo ren c:\efi _efi >> "%STARTNET_CMD%"
+    echo echo echo Deploying Flash.ffu to eMMC >> "%STARTNET_CMD%"
+    echo echo dism /Apply-Image /ImageFile:c:\Flash.ffu /ApplyDrive:\\.\PhysicalDrive%FFU_DISK_NUM% /skipplatformcheck >> "%STARTNET_CMD%"
+    echo echo rmdir /s /q c:\_efi >> "%STARTNET_CMD%"
+    echo echo ren c:\efi _efi >> "%STARTNET_CMD%"
     echo echo Successfully flashed new image to eMMC. Restarting the device... >> "%STARTNET_CMD%"
-    echo wpeutil reboot >> "%STARTNET_CMD%"
+    echo echo wpeutil reboot >> "%STARTNET_CMD%"
 )
 
 echo Copying driver packages to %PACKAGES_DIR%
