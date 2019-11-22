@@ -11,7 +11,7 @@ if "%PLATFORM%"=="ARM" (
 
     cd /d %BATCH_HOME%
     echo "Building HummingBoardEdge_iMX6Q_2GB FFU"
-    call BuildImage HummingBoardEdge_iMX6Q_2GB HummingBoardEdge_iMX6Q_2GB_TestOEMInput.xml
+    call BuildImage HummingBoardEdge_iMX6Q_2GB HummingBoardEdge_iMX6Q_2GB_ProductionOEMInput.xml
 
     REM cd /d %BATCH_HOME%
     REM echo "Building Sabre_iMX6Q_1GB FFU"
